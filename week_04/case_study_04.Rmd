@@ -1,22 +1,31 @@
 ---
 title: "Case Study 04"
-author: Your Name
-date: August 1, 2020
+author: Leah Bargnesi
+date: September 27, 2022
 output: github_document
 ---
 
-## First Header
 
-Comments
+library(dplyr)
+library(tidyverse)
+library(nycflights13)
+library(ggplot2)
+view("nycflights13")
+str("nycflights13")
+flights
+airports
 
-```{r}
-summary(cars)
-```
+farthest_airport <- flights %>%
+arrange(desc(distance))%>%
+slice_head(n=1)%>%
+left_join(airports, by = c("dest"="faa"))%>%
+select(name)%>%
+as.character()
+farthest_airport
 
-## Second Header
 
-Comments
 
-```{r}
-plot(pressure)
-```
+
+
+
+
