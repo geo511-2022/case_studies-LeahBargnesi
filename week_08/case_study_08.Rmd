@@ -9,14 +9,17 @@ output:
   word_document: default
 ---
 ```{r}
+rmarkdown::render("case_study_08.Rmd", output_format = "all")
+
 library(dplyr)
 library(tidyverse)
 library(ggplot2)
-library(reprex)
 library(knitr)
 library(rmarkdown)
 library(kableExtra)
-library(magick)
+
+
+
 
 just_the_data <- read.table("ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.txt", col.names = c("year", "mean", "unc"), skip = 56)
 
@@ -33,9 +36,9 @@ kable(TS_table,
     latex_options = c("striped", "scale_down")
     )%>%
   row_spec(1, color = "red") %>%
-  as_image(width = 10,file = "table.png")
+   as_image(width = 10, file =  "table.png")
+TS_table
 
-render("case study 08", output_format = "all")
 
 
 ```
