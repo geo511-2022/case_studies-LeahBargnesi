@@ -1,7 +1,44 @@
 ---
 title: "Case Study 08"
-author: Your Name
-date: August 1, 2020
-output: github_document
+author: Leah Bargnesi
+date: October 25, 2022
+output: 
+  html_document: default
+  github_document: default
+  powerpoint_presentation: default
+  word_document: default
 ---
- 
+```{r}
+rmarkdown::render("case_study_08.Rmd", output_format = "all")
+
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(knitr)
+library(rmarkdown)
+library(kableExtra)
+
+
+
+
+just_the_data <- read.table("ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.txt", col.names = c("year", "mean", "unc"), skip = 56)
+
+time_series <- ggplot(just_the_data, aes(x= year, y= mean))+
+         geom_line(aes(color="red"))+
+        labs(title="Mean CO2 in Mauna Loa Over Time", x="Time (years)", y="Mean CO2(ppm)")
+time_series
+
+TS_table<-arrange(just_the_data, desc(mean))[1:5,]
+kable(TS_table,
+      caption = "Mean CO2 in 1959-2021",
+      col.names = c("Year", "Mean", "Unc"))%>%
+   kable_styling(
+    latex_options = c("striped", "scale_down")
+    )%>%
+  row_spec(1, color = "red") %>%
+   as_image(width = 10, file =  "table.png")
+TS_table
+
+
+
+```
