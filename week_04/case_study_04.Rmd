@@ -5,6 +5,7 @@ date: September 27, 2022
 output: github_document
 ---
 ## Farthest Airport from NYC
+<<<<<<< HEAD
 
 library(dplyr)
 library(tidyverse)
@@ -29,3 +30,22 @@ farthest_airport
 
 
 
+=======
+
+library(dplyr)
+library(tidyverse)
+library(nycflights13)
+library(ggplot2)
+view("nycflights13")
+str("nycflights13")
+flights
+airports
+
+farthest_airport <- flights %>%
+arrange(desc(distance))%>%
+slice_head(n=1)%>%
+left_join(airports, by = c("dest"="faa"))%>%
+select(name)%>%
+as.character()
+farthest_airport
+>>>>>>> 7323ae8f949144929a2475956ae7835a4e381146

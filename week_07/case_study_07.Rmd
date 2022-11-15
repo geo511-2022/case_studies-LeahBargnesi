@@ -17,4 +17,8 @@ ggplot(world,aes(x=gdpPercap, y=continent, color=continent))+
    geom_density(alpha=0.5,color=F)
 
 
+<<<<<<< HEAD
 ```
+=======
+```
+>>>>>>> 7323ae8f949144929a2475956ae7835a4e381146
