@@ -1,22 +1,51 @@
 ---
 title: "Case Study 04"
-author: Your Name
-date: August 1, 2020
+author: Leah Bargnesi
+date: September 27, 2022
 output: github_document
 ---
+## Farthest Airport from NYC
+<<<<<<< HEAD
 
-## First Header
+library(dplyr)
+library(tidyverse)
+library(nycflights13)
+library(ggplot2)
+view("nycflights13")
+str("nycflights13")
+flights
+airports
 
-Comments
+farthest_airport <- flights %>%
+arrange(desc(distance))%>%
+slice_head(n=1)%>%
+left_join(airports, by = c("dest"="faa"))%>%
+select(name)%>%
+as.character()
+farthest_airport
 
-```{r}
-summary(cars)
-```
 
-## Second Header
 
-Comments
 
-```{r}
-plot(pressure)
-```
+
+
+
+=======
+
+library(dplyr)
+library(tidyverse)
+library(nycflights13)
+library(ggplot2)
+view("nycflights13")
+str("nycflights13")
+flights
+airports
+
+farthest_airport <- flights %>%
+arrange(desc(distance))%>%
+slice_head(n=1)%>%
+left_join(airports, by = c("dest"="faa"))%>%
+select(name)%>%
+as.character()
+farthest_airport
+>>>>>>> 7323ae8f949144929a2475956ae7835a4e381146

@@ -1,7 +1,24 @@
 ---
 title: "Case Study 07"
-author: Your Name
-date: August 1, 2020
+author: Leah Bargnesi
+date: October 18, 2022
 output: github_document
 ---
- 
+```{r}
+library(tidyverse)
+library(reprex)
+library(sf)
+library(spData)
+library(ggplot2)
+
+data(world)
+
+ggplot(world,aes(x=gdpPercap, y=continent, color=continent))+
+   geom_density(alpha=0.5,color=F)
+
+
+<<<<<<< HEAD
+```
+=======
+```
+>>>>>>> 7323ae8f949144929a2475956ae7835a4e381146
